@@ -26,7 +26,7 @@ Back Office is a suite of open-source business tools designed to help you run yo
 - 💸 100% free to use
 
 ## Contributing
-We welcome contributions! Please check out the CONTRIBUTING.md guide to get started.
+We welcome contributions! Please check out the [CONTRIBUTING.md](CONTRIBUTING.md) guide to get started.
 
 ## License
 This project is licensed under the Apache License 2.0.
