@@ -1,0 +1,29 @@
+{
+  "name": "@backoffice/core",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "clean": "rimraf .turbo && rimraf node_modules && rimraf dist"
+  },
+  "devDependencies": {
+    "@backoffice/eslint-config": "workspace:*",
+    "@backoffice/typescript-config": "workspace:*",
+    "@types/node": "^20",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.0.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "deepmerge": "^4.3.1"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "extends": "@backoffice/typescript-config/base.json"
+}
+
