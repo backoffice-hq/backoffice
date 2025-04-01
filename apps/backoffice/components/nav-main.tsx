@@ -1,58 +1,50 @@
-"use client"
+"use client";
 
-import { IconCirclePlusFilled, IconMail, type Icon } from "@tabler/icons-react"
+import { cn } from "@backoffice/ui/lib/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { Button } from "@backoffice/ui/components/button"
-import {
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@backoffice/ui/components/sidebar"
+interface Item {
+  title: string;
+  url: string;
+  icon: React.ReactNode;
+}
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string
-    url: string
-    icon?: Icon
-  }[]
-}) {
+interface NavMainProps {
+  title: string;
+  items: Item[];
+}
+
+export function NavMain({ title, items }: NavMainProps) {
+  const pathname = usePathname();
+
   return (
-    <SidebarGroup>
-      <SidebarGroupContent className="flex flex-col gap-2">
-        <SidebarMenu>
-          <SidebarMenuItem className="flex items-center gap-2">
-            <SidebarMenuButton
-              tooltip="Quick Create"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
+    <div
+      className={cn(
+        "w-64 border-r transition-all duration-300 ease-in-out h-screen flex flex-col"
+      )}
+    >
+      <div className="flex flex-col p-4 space-y-0.5">
+        <h1 className="text-sm text-muted-foreground font-medium mb-4 px-2">{title}</h1>
+        {items.map((item) => {
+          const isActive = pathname === item.url;
+          return (
+            <Link 
+              href={item.url} 
+              key={item.title}
+              className={cn(
+                "flex w-full p-2 rounded-md transition-colors gap-2",
+                isActive 
+                  ? "bg-accent text-accent-foreground" 
+                  : "hover:bg-accent hover:text-accent-foreground"
+              )}
             >
-              <IconCirclePlusFilled />
-              <span>Quick Create</span>
-            </SidebarMenuButton>
-            <Button
-              size="icon"
-              className="size-8 group-data-[collapsible=icon]:opacity-0"
-              variant="outline"
-            >
-              <IconMail />
-              <span className="sr-only">Inbox</span>
-            </Button>
-          </SidebarMenuItem>
-        </SidebarMenu>
-        <SidebarMenu>
-          {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton tooltip={item.title}>
-                {item.icon && <item.icon />}
-                <span>{item.title}</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </SidebarMenu>
-      </SidebarGroupContent>
-    </SidebarGroup>
-  )
+              {item.icon}
+              <span className="text-sm">{item.title}</span>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
