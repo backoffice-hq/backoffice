@@ -1,40 +1,17 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import { ChartAreaInteractive } from "@/components/chart-area-interactive"
-import { DataTable } from "@/components/data-table"
-import { SectionCards } from "@/components/section-cards"
-import { SiteHeader } from "@/components/site-header"
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@backoffice/ui/components/sidebar"
-
-import data from "./data.json"
+import { Separator } from "@backoffice/ui/components/separator";
 
 export default function Page() {
   return (
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
-      }
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2">
-            <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-              <SectionCards />
-              <div className="px-4 lg:px-6">
-                <ChartAreaInteractive />
-              </div>
-              <DataTable data={data} />
-            </div>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
-  )
+    <div className="container mx-auto p-12">
+      <h1 className="text-3xl font-bold mb-4">Back Office</h1>
+      <p className="text-muted-foreground lg:w-1/2">
+        Back Office is a suite of open-source business tools designed to help
+        you run your company with ease. It’s fully customizable to fit your
+        unique business needs and is suitable for businesses of all sizes — from
+        startups to growing enterprises. Best of all, it's completely free.
+      </p>
+      <Separator className="my-12" />
+      {/* Widgets Dashboard */}
+    </div>
+  );
 }

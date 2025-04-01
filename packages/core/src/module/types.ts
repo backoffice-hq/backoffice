@@ -129,6 +129,16 @@ export interface BackOfficeModule<T extends ModuleConfig = ModuleConfig> {
     name: string;
 
     /**
+     * Description of the module
+     */
+    description: string;
+
+    /**
+     * Version of the module
+     */
+    version: string;
+    
+    /**
      * Configuration for the module
      */
     config: T;

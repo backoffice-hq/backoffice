@@ -75,6 +75,9 @@ importers:
       zod:
         specifier: ^3.24.2
         version: 3.24.2
+      zustand:
+        specifier: ^5.0.3
+        version: 5.0.3(@types/react@19.0.12)(react@19.1.0)
     devDependencies:
       '@backoffice/eslint-config':
         specifier: workspace:^
@@ -97,9 +100,6 @@ importers:
 
   packages/core:
     dependencies:
-      '@backoffice/users':
-        specifier: workspace:*
-        version: link:../modules/users
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -195,6 +195,34 @@ importers:
       typescript-eslint:
         specifier: ^8.24.1
         version: 8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.7.3)
+
+  packages/modules/company:
+    dependencies:
+      '@backoffice/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@backoffice/database':
+        specifier: workspace:*
+        version: link:../../database
+    devDependencies:
+      '@backoffice/eslint-config':
+        specifier: workspace:*
+        version: link:../../eslint-config
+      '@backoffice/typescript-config':
+        specifier: workspace:*
+        version: link:../../typescript-config
+      '@types/node':
+        specifier: ^20
+        version: 20.17.28
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
+      tsup:
+        specifier: ^8.0.2
+        version: 8.4.0(jiti@2.4.2)(postcss@8.5.3)(typescript@5.7.3)
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
 
   packages/modules/users:
     dependencies:
@@ -3902,6 +3930,24 @@ packages:
   zod@3.24.2:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
 
+  zustand@5.0.3:
+    resolution: {integrity: sha512-14fwWQtU3pH4dE0dOpdMiWjddcH+QzKIgk1cl8epwSE7yag43k/AD/m4L6+K7DytAOr9gGBe3/EXj9g7cdostg==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -7603,3 +7649,8 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zod@3.24.2: {}
+
+  zustand@5.0.3(@types/react@19.0.12)(react@19.1.0):
+    optionalDependencies:
+      '@types/react': 19.0.12
+      react: 19.1.0
