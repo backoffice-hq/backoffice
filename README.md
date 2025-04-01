@@ -11,7 +11,7 @@
 </p>
 
 > [!WARNING]
-> **Back Office is currently in Development:** Please be aware that the project is still in progress. You may encounter breaking changes and bugs as we continue to improve and expand the tool.
+> Back Office is currently in Development: Please be aware that the project is still in progress. You may encounter breaking changes and bugs as we continue to improve and expand the tool.
 
 > [!NOTE]
 > All your business tools in one place — Simple. Flexible. Free.
@@ -30,7 +30,7 @@ Back Office is a suite of open-source business tools designed to help you run yo
 
 ```
 backoffice/
-├── apps/                     # Application implementations
+├── apps/                    # Application implementations
 │   ├── backoffice/          # Main web application
 │   │   ├── app/             # Next.js app directory
 │   │   └── public/          # Static assets
@@ -43,13 +43,13 @@ backoffice/
 │       │   └── modules/     # Module documentation
 │       └── theme.config.js  # Fumadocs configuration
 │
-├── packages/                 # Shared packages
+├── packages/                # Shared packages
 │   ├── core/                # Core framework and utilities
 │   ├── ui/                  # Shared UI components
 │   └── modules/             # Business modules
 │       ├── company/         # Company management module
 │       ├── users/           # User management module
-│       └── ...             
+│       └── ...
 ```
 
 The project follows a monorepo structure using pnpm workspaces:
@@ -66,10 +66,10 @@ The project follows a monorepo structure using pnpm workspaces:
 
 ## Modules
 
-| Module                                          | Description                                              | Type |
-| ----------------------------------------------- | -------------------------------------------------------- | ---- |
-| [company](/packages//modules/company/README.md) | Manage company information, settings, and branding       | Core |
-| [users](/packages/modules/users/README.md)      | Manage users, roles, and permissions across the platform | Core |
+| Module                                          | Description                                              | Type | Status      |
+| ----------------------------------------------- | -------------------------------------------------------- | ---- | ----------- |
+| [company](/packages//modules/company/README.md) | Manage company information, settings, and branding       | Core | In-Progress |
+| [users](/packages/modules/users/README.md)      | Manage users, roles, and permissions across the platform | Core | In-Progress |
 
 ## Contributing
 
