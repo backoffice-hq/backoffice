@@ -11,6 +11,12 @@ export default defineConfig({
         address: "123 Main St, Anytown, USA",
     },
 
+    // Database
+    database: {
+        type: 'postgres',
+        url: process.env.DATABASE_URL,
+    },
+
     // Application Modules
     modules: [],
 });

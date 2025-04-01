@@ -9,6 +9,18 @@ export const defaultConfig: Partial<BackOfficeConfig> = {
         phone: "+1234567890",
         address: "123 Main St, Anytown, USA",
     },
+    database: {
+        type: 'sqlite',
+        url: './data/backoffice.db',
+        migrations: {
+            path: './migrations',
+            runOnStart: true,
+        },
+        pool: {
+            min: 2,
+            max: 10,
+        }
+    },
     env: (process.env.NODE_ENV as "development" | "production") || "development",
     modules: [],
 };
