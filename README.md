@@ -10,7 +10,7 @@
   </p>
 </p>
 
-> [!Warning] **Back Office is currently in Development:** Please be aware that the project is still in progress. You may encounter breaking changes and bugs as we continue to improve and expand the tool.
+> [!WARNING] **Back Office is currently in Development:** Please be aware that the project is still in progress. You may encounter breaking changes and bugs as we continue to improve and expand the tool.
 
 > [!NOTE]
 > All your business tools in one place — Simple. Flexible. Free.
