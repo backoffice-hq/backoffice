@@ -30,15 +30,7 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
       >
-        <Providers>
-          <div className="flex min-h-screen">
-            {/* Apps Sidebar */}
-            <AppSidebar />
-
-            {/* Main Content */}
-            <div className="flex-1">{children}</div>
-          </div>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,5 +1,12 @@
 import { NavMain } from "@/components/nav-main";
-import { Building2, Users, FileText, Blocks, User } from "lucide-react";
+import {
+  Building2,
+  Users,
+  FileText,
+  Blocks,
+  User,
+  Settings2,
+} from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -32,6 +39,11 @@ const items = [
     title: "Applications",
     url: "/settings/applications",
     icon: <Blocks className="w-4 h-4" />,
+  },
+  {
+    title: "Preferences",
+    url: "/settings/preferences",
+    icon: <Settings2 className="w-4 h-4" />,
   },
 ];
 
