@@ -45,6 +45,7 @@ backoffice/
 │
 ├── packages/                # Shared packages
 │   ├── core/                # Core framework and utilities
+│   ├── auth/                # Authentication and authorization
 │   ├── ui/                  # Shared UI components
 │   └── modules/             # Business modules
 │       ├── company/         # Company management module
@@ -61,6 +62,7 @@ The project follows a monorepo structure using pnpm workspaces:
   - Module documentation
   - Search functionality
 - **packages/core**: Core framework, types, and utilities
+- **packages/auth**: Authentication, authorization, and session management
 - **packages/ui**: Reusable UI components and design system
 - **packages/modules**: Business logic modules that can be composed together
 
@@ -70,6 +72,14 @@ The project follows a monorepo structure using pnpm workspaces:
 | ----------------------------------------------- | -------------------------------------------------------- | ---- | ----------- |
 | [company](/packages//modules/company/README.md) | Manage company information, settings, and branding       | Core | In-Progress |
 | [users](/packages/modules/users/README.md)      | Manage users, roles, and permissions across the platform | Core | In-Progress |
+
+## Databases
+
+Currently, we support 3 databases
+
+- PostgeSQL (reccommended)
+- MySQL
+- SQLite
 
 ## Contributing
 
