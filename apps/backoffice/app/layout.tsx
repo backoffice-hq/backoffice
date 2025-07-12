@@ -5,6 +5,9 @@ import { Providers } from "@/components/providers";
 import { AppSidebar } from "@/components/app-sidebar";
 import type { Metadata } from "next";
 
+// Initialize server on import (server-side only)
+import "@/lib/server-init";
+
 const fontSans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",

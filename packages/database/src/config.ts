@@ -1,15 +1,17 @@
 import fs from 'fs';
 import path from 'path';
-import { Pool, PoolConfig } from "pg";
-import SQLite from 'better-sqlite3';
 import { DatabaseConfig } from "./types";
+
 /**
  * Create a database pool for PostgreSQL
  * @param config - The database configuration
  * @returns PostgreSQL database pool
  */
-export async function createPgPool(config: DatabaseConfig): Promise<Pool> {
-    const poolConfig: PoolConfig = {};
+export async function createPgPool(config: DatabaseConfig): Promise<any> {
+    // Dynamic import for PostgreSQL
+    const { Pool } = await import('pg');
+    
+    const poolConfig: any = {};
 
     if (config.url) {
         poolConfig.connectionString = config.url;
@@ -48,11 +50,14 @@ export async function createPgPool(config: DatabaseConfig): Promise<Pool> {
  * @param config - The database configuration
  * @returns SQLite database connection
  */
-export async function createSqliteConnection(config: DatabaseConfig): Promise<SQLite.Database> {
+export async function createSqliteConnection(config: DatabaseConfig): Promise<any> {
     try {
+        // Dynamic import for SQLite
+        const SQLite = await import('better-sqlite3');
+        
         if (config.database === ':memory:') {
             console.log('Using in-memory SQLite database');
-            return new SQLite(':memory:');
+            return new SQLite.default(':memory:');
         }
 
         const dbPath = config.url || config.database;
@@ -66,7 +71,7 @@ export async function createSqliteConnection(config: DatabaseConfig): Promise<SQ
         }
 
         console.log(`Connected to SQLite database at ${dbPath}`);
-        return new SQLite(dbPath);
+        return new SQLite.default(dbPath);
     } catch (error) {
         console.error('Failed to connect to SQLite database:', error);
         throw error;
